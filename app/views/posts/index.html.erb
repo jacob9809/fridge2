@@ -1,0 +1,8 @@
+<h1>나의 냉장고</h1>
+
+<% @posts.each do |post| %>
+    <h3><a href="/posts/show/<%= post.id %>">식재료명 : <%= post.food %> - 유통기한 : <%= post.shelflife %></a></h3>
+<% end %>
+
+<h2><a href="/posts/new">[새로운 식재료 등록하기]</a></h2>
+<h2><a href="/">[메인으로 돌아가기]</a></h2>

@@ -1,0 +1,10 @@
+<h1>식재료를 수정할 화면입니다</h1>
+<form action="/posts/update/<%= @post.id %>" method="post">
+    <p>식재료명</p>
+    <input type="text" name="input_food" value="<%= @post.food %>">
+    <p>수량</p>
+    <input type="number" name="input_count" min="1" max="1000" value="<%= @post.count %>">
+    <p>유통기한</p>
+    <input type="date" name="input_shelflife" value="<%= @post.shelflife %>">
+    <input type="submit">
+</form>
