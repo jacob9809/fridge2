@@ -1,17 +1,16 @@
-<h1></h1>
+<h1>유효기간 : <%= @due_day %> 일</h1>
 
 <h2>식재료명 : <%= @post.food %></h2>
 
 <p>수량 : <%= @post.count %></p>
 
 <p>유통기한 : <%= @post.shelflife %></p>
-
-<p><%= @post.difference %> 일</p>
 <hr>
 <h3>식재료 관련 메모</h3>
 
 <form action='/posts/show/<%= @post.id %>/comments/create' method='post'>
     <input type='text' name='input_comment'>
+    <br>
     <input type='submit'>
 </form>
 

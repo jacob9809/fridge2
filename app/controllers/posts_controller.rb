@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    include PostsHelper
+    
     # Create
     def new
     #사용자가 데이터를 입력할 화면
@@ -12,6 +14,7 @@ class PostsController < ApplicationController
         @post.food = params[:input_food]
         @post.count = params[:input_count]
         @post.shelflife = params[:input_shelflife] 
+        
         @post.save
         
         redirect_to "/posts/show/#{@post.id}"
@@ -27,6 +30,9 @@ class PostsController < ApplicationController
     #한 개의 post를 보여주는 View
         @post = Post.find(params[:post_id])
         @comments = Comment.where(post_id: params[:post_id])
+       
+        @due_day = ((@post.shelflife.to_date - Time.now.to_date).to_i).to_s
+        
     end
     
     # Update
@@ -55,5 +61,4 @@ class PostsController < ApplicationController
         redirect_to '/'
     end
     
-   
 end
